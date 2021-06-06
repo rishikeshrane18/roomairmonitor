@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:percent_indicator/percent_indicator.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -57,10 +58,21 @@ class _HomePageState extends State<HomePage> {
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
                               new Text("NAME : " + pokeData["channel"]['name']),
-                              new Text("Id : " +
+                              /*new Text("Id : " +
                                   pokeData["feeds"][index]['field1']
-                                      .toString()),
+                                      .toString()),*/
                               // new Image.network( pokeData['pokemon'][index]['img']),
+                              new CircularPercentIndicator(
+                                radius: 100.0,
+                                lineWidth: 15.0,
+                                percent: double.parse(
+                                        pokeData["feeds"][index]["field1"]) /
+                                    100,
+                                center: new Text(double.parse(
+                                        pokeData["feeds"][index]["field1"])
+                                    .toStringAsFixed(2)),
+                                progressColor: Colors.green,
+                              )
                             ],
                           ),
                         ),
