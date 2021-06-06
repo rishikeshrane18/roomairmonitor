@@ -49,29 +49,78 @@ class _HomePageState extends State<HomePage> {
           child: pokeData == null
               ? new CircularProgressIndicator()
               : new ListView.builder(
-                  itemCount: pokeData.length,
+                  itemCount: (pokeData.length),
                   itemBuilder: (BuildContext context, int index) {
                     return Center(
                       child: new Card(
                         child: Center(
                           child: new Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: <Widget>[
-                              new Text("NAME : " + pokeData["channel"]['name']),
-                              /*new Text("Id : " +
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  new Text("TEMP : " ),
+                                  /*new Text("Id : " +
                                   pokeData["feeds"][index]['field1']
                                       .toString()),*/
-                              // new Image.network( pokeData['pokemon'][index]['img']),
-                              new CircularPercentIndicator(
-                                radius: 100.0,
-                                lineWidth: 15.0,
-                                percent: double.parse(
-                                        pokeData["feeds"][index]["field1"]) /
-                                    100,
-                                center: new Text(double.parse(
-                                        pokeData["feeds"][index]["field1"])
-                                    .toStringAsFixed(2)),
-                                progressColor: Colors.green,
+                                  // new Image.network( pokeData['pokemon'][index]['img']),
+                                  new CircularPercentIndicator(
+                                    radius: 120.0,
+                                    lineWidth: 10.0,
+                                    percent: double.parse(
+                                        pokeData["feeds"][0]["field1"]) /
+                                        100,
+                                    center: new Text(double.parse(
+                                        pokeData["feeds"][0]["field1"])
+                                        .toStringAsFixed(2)),
+                                    progressColor: Colors.green,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  new Text("humidity : " ),
+                                  /*new Text("Id : " +
+                                  pokeData["feeds"][index]['field1']
+                                      .toString()),*/
+                                  // new Image.network( pokeData['pokemon'][index]['img']),
+                                  new CircularPercentIndicator(
+                                    radius: 120.0,
+                                    lineWidth: 10.0,
+                                    percent: double.parse(
+                                        pokeData["feeds"][0]["field2"]) /
+                                        100,
+                                    center: new Text(double.parse(
+                                        pokeData["feeds"][0]["field2"])
+                                        .toStringAsFixed(2)),
+                                    progressColor: Colors.green,
+                                  ),
+                                ],
+                              ),
+
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                children: [
+                                  new Text("AirQuality : " ),
+                                  /*new Text("Id : " +
+                                  pokeData["feeds"][index]['field1']
+                                      .toString()),*/
+                                  // new Image.network( pokeData['pokemon'][index]['img']),
+                                  new CircularPercentIndicator(
+                                    radius: 120.0,
+                                    lineWidth: 10.0,
+                                    percent: double.parse(
+                                        pokeData["feeds"][0]["field3"]) /
+                                        100,
+                                    center: new Text(double.parse(
+                                        pokeData["feeds"][0]["field3"])
+                                        .toStringAsFixed(2)),
+                                    progressColor: Colors.green,
+                                  ),
+                                ],
                               )
                             ],
                           ),
