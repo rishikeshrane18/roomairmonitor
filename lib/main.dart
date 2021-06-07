@@ -41,10 +41,11 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBar(
-        title: Center(child: new Text("POKEMONE APP")),
-        backgroundColor: Colors.lightBlue,
+        title: Center(child: new Text("IoT Air Monitor")),
+        backgroundColor: Colors.deepPurple,
       ),
       body: new Container(
+
         child: new Center(
           child: pokeData == null
               ? new CircularProgressIndicator()
@@ -52,16 +53,21 @@ class _HomePageState extends State<HomePage> {
                   itemCount: (pokeData.length),
                   itemBuilder: (BuildContext context, int index) {
                     return Center(
+
                       child: new Card(
+                       // new Padding(padding: EdgeInsets.all(20)),
+                        color: Colors.cyanAccent.withOpacity(0.7),
                         child: Center(
                           child: new Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             crossAxisAlignment: CrossAxisAlignment.stretch,
+
                             children: <Widget>[
+                              new Padding(padding: EdgeInsets.all(20)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  new Text("TEMP : " ),
+                                  Container(height: 150,width : 150,child: Card(color: Colors.cyanAccent,child: Center(child: new Text("TEMPERATURE : " )),elevation: 20,)),
                                   /*new Text("Id : " +
                                   pokeData["feeds"][index]['field1']
                                       .toString()),*/
@@ -75,14 +81,15 @@ class _HomePageState extends State<HomePage> {
                                     center: new Text(double.parse(
                                         pokeData["feeds"][0]["field1"])
                                         .toStringAsFixed(2)),
-                                    progressColor: Colors.green,
+                                    progressColor: Colors.red,
                                   ),
                                 ],
                               ),
+                              new Padding(padding: EdgeInsets.all(20)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  new Text("humidity : " ),
+                                  Container(height: 150,width : 150,child: Card(color: Colors.cyanAccent,child: Center(child: new Text("HUMIDITY : " )),elevation: 20,)),
                                   /*new Text("Id : " +
                                   pokeData["feeds"][index]['field1']
                                       .toString()),*/
@@ -96,15 +103,15 @@ class _HomePageState extends State<HomePage> {
                                     center: new Text(double.parse(
                                         pokeData["feeds"][0]["field2"])
                                         .toStringAsFixed(2)),
-                                    progressColor: Colors.green,
+                                    progressColor: Colors.yellow,
                                   ),
                                 ],
                               ),
-
+                              new Padding(padding: EdgeInsets.all(20)),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 children: [
-                                  new Text("AirQuality : " ),
+                                  Container(height: 150,width : 150,child: Card(color: Colors.cyanAccent,child: Center(child: new Text("AIRQUALITY : " )),elevation: 20,)),
                                   /*new Text("Id : " +
                                   pokeData["feeds"][index]['field1']
                                       .toString()),*/
@@ -118,10 +125,11 @@ class _HomePageState extends State<HomePage> {
                                     center: new Text(double.parse(
                                         pokeData["feeds"][0]["field3"])
                                         .toStringAsFixed(2)),
-                                    progressColor: Colors.green,
+                                    progressColor: Colors.pinkAccent,
                                   ),
                                 ],
-                              )
+                              ),
+                              new Padding(padding: EdgeInsets.all(20)),
                             ],
                           ),
                         ),
